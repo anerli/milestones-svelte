@@ -9,7 +9,7 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<strong class="text-xl">Milestones</strong>
+				<a href="/" class="text-xl font-bold">Milestones</a>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
