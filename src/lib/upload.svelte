@@ -48,17 +48,27 @@
         <!-- <h1 class="h2 not-italic">Upload your Story</h1> -->
         <p class="text-xl font-bold">Upload your Story Recording</p>
 
+        {#if !fileList}
         <FileDropzone name="files" bind:files={fileList}>
             <!-- <svelte:fragment slot="lead">(icon)</svelte:fragment> -->
             <svelte:fragment slot="message">Upload a file or drag and drop</svelte:fragment>
             <svelte:fragment slot="meta">MP3 Allowed</svelte:fragment>
         </FileDropzone>
+        {:else if loading}
+        <ProgressRadial/>
+        <p>Please wait while we transcribe your recording...</p>
+        {:else}
+        <FileDropzone name="files" bind:files={fileList} border='border-solid'>
+            <!-- <svelte:fragment slot="lead">(icon)</svelte:fragment> -->
+            <svelte:fragment slot="message">{fileList[0].name} Uploaded!</svelte:fragment>
+        </FileDropzone>
+        {/if}
 
         <button class="btn variant-filled" on:click={handleUpload}>Submit</button>
 
-        {#if loading}
+        <!-- {#if loading}
         <ProgressRadial/>
-        {/if}
+        {/if} -->
     </div>
 </div>
 
