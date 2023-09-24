@@ -35,6 +35,7 @@
         transcript_store.set(transcript);
         localStorage.setItem("transcript", transcript);
         localStorage.removeItem("story");
+        localStorage.removeItem("pages");
 
         loading = false;
         goto('/story');
@@ -80,6 +81,7 @@
         <!-- {#if loading}
         <ProgressRadial/>
         {/if} -->
+        <a href="/myers.mp3" class="text-primary-900" download>Download Example MP3</a>
     </div>
 </div>
 
