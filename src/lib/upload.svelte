@@ -48,21 +48,26 @@
     <div class="flex flex-col items-center space-y-8">
         <!-- Your content here will be horizontally centered -->
         <!-- <h1 class="h2 not-italic">Upload your Story</h1> -->
-        <p class="text-xl font-bold">Upload your Story Recording</p>
+        <p class="text-xl font-bold text-secondary-500">Upload your Story Recording</p>
 
         {#if !fileList}
-        <FileDropzone name="files" bind:files={fileList}>
+        <FileDropzone name="files" bind:files={fileList} class="bg-surface-50">
             <!-- <svelte:fragment slot="lead">(icon)</svelte:fragment> -->
-            <svelte:fragment slot="message">Upload a file or drag and drop</svelte:fragment>
-            <svelte:fragment slot="meta">MP3 Allowed</svelte:fragment>
+            <svelte:fragment slot="message">
+                <p class="text-primary-50 text-lg">Upload a video or audio file or drag and drop</p></svelte:fragment>
+            <!-- <svelte:fragment slot="meta">
+                <p class="text-primary-100 text-lg">P</p>
+            </svelte:fragment> -->
         </FileDropzone>
         {:else if loading}
-        <ProgressRadial/>
-        <p>Please wait while we transcribe your recording...</p>
+        <ProgressRadial meter="stroke-secondary-500"/>
+        <p class="text-primary-900">Please wait while we transcribe your recording...</p>
         {:else}
-        <FileDropzone name="files" bind:files={fileList} border='border-solid'>
+        <FileDropzone name="files" bind:files={fileList} border='border-solid bg-error-500'>
             <!-- <svelte:fragment slot="lead">(icon)</svelte:fragment> -->
-            <svelte:fragment slot="message">{fileList[0].name} Uploaded!</svelte:fragment>
+            <svelte:fragment slot="message">
+                <p class="text-primary-50 text-lg">{fileList[0].name} Uploaded!</p>
+            </svelte:fragment>
         </FileDropzone>
         {/if}
 

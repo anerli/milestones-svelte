@@ -39,19 +39,19 @@
 
 <div class="mx-auto w-full max-w-4xl p-4">
     <div class="flex flex-col items-center space-y-8">
-        <div class="card p-4">
-            <p class="text-xl font-bold">Transcript</p>
-            <p>{transcript}</p>
+        <div class="bg-error-50 card p-4 bg-error-50 fg-error-50 border-solid" style="background-color: #fcfcfc; border: 1px solid black;">
+            <p class="text-xl font-bold text-secondary-500">Transcript</p>
+            <p class="text-primary-900" style="color: #222222;">{transcript}</p>
         </div>
 
-        <div class="card p-4">
+        <div class="card p-4" style="background-color: #fcfcfc; border: 1px solid black;">
             
             {#if generatedStory}
-            <p class="text-xl font-bold">Story</p>
-            <p>{generatedStory}</p>
+            <p class="text-xl font-bold text-secondary-500">Story</p>
+            <p style="color: #222222;">{generatedStory}</p>
             {:else}
-            <ProgressRadial/>
-            <p>Generating story...</p>
+            <ProgressRadial meter="stroke-secondary-500"/>
+            <p style="color: #222222;">Generating story...</p>
             {/if}
         </div>
     </div>
