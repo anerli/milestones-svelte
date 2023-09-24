@@ -33,6 +33,7 @@
         const { transcript } = data;
         console.log('Got transcript from backend: ', transcript);
         transcript_store.set(transcript);
+        localStorage.setItem("transcript", transcript);
 
         loading = false;
         goto('/story');

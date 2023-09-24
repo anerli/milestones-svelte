@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import { transcript_store } from '$lib/stores';
 
+    let transcript;
     let generatedStory;
 
     const generateStory = async (transcript) => {
@@ -20,11 +21,17 @@
     }
 
     onMount(() => {
+        if ($transcript_store) {
+            transcript = $transcript_store;
+        } else {
+            // try getting from local storage
+            transcript = window.localStorage.getItem("transcript");
+        }
 		generateStory();
 	});
 </script>
 
-<p>Transcript: {$transcript_store}</p>
+<p>Transcript: {transcript}</p>
 
 <h1>Generated story:</h1>
 {#if generatedStory}
