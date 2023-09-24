@@ -37,13 +37,22 @@
 	});
 </script>
 
-<p>Transcript: {transcript}</p>
+<div class="mx-auto w-full max-w-4xl p-4">
+    <div class="flex flex-col items-center space-y-8">
+        <div class="card p-4">
+            <p class="text-xl font-bold">Transcript</p>
+            <p>{transcript}</p>
+        </div>
 
-<h1>Generated story:</h1>
-{#if generatedStory}
-<p>{generatedStory}</p>
-{:else}
-<ProgressRadial/>
-<p>Generating story...</p>
-{/if}
-
+        <div class="card p-4">
+            
+            {#if generatedStory}
+            <p class="text-xl font-bold">Story</p>
+            <p>{generatedStory}</p>
+            {:else}
+            <ProgressRadial/>
+            <p>Generating story...</p>
+            {/if}
+        </div>
+    </div>
+</div>
