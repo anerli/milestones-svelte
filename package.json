@@ -34,6 +34,7 @@
   },
   "type": "module",
   "dependencies": {
-    "lamejs": "^1.2.1"
+    "lamejs": "github:zhuker/lamejs",
+    "openai": "^4.10.0"
   }
 }
