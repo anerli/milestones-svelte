@@ -43,11 +43,15 @@
 
 
 <!-- <input type="file" bind:files={fileList} accept=".mp3" /> -->
+<!-- class="h-auto max-w-full"/> -->
+<!-- <img src="book_png.png" alt="book" style="width: 100px; height: 100px;"/> -->
+<!-- style="width: 100%; height: 100%;"/> -->
 
 <div class="mx-auto w-full max-w-xl p-4">
     <div class="flex flex-col items-center space-y-8">
         <!-- Your content here will be horizontally centered -->
-        <!-- <h1 class="h2 not-italic">Upload your Story</h1> -->
+        <!-- <h1 class="h2 not-italic">Upload your Story</h1> class="h-auto max-w-full" -->
+        <img src="book_png.png" alt="book" style="width: 80%;" />
         <p class="text-xl font-bold text-secondary-500">Upload your Story Recording</p>
 
         {#if !fileList}
@@ -71,7 +75,7 @@
         </FileDropzone>
         {/if}
 
-        <button class="btn variant-filled" on:click={handleUpload}>Submit</button>
+        <button class="btn variant-filled" on:click={handleUpload}>Create Story!</button>
 
         <!-- {#if loading}
         <ProgressRadial/>
