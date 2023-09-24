@@ -34,6 +34,7 @@
         console.log('Got transcript from backend: ', transcript);
         transcript_store.set(transcript);
         localStorage.setItem("transcript", transcript);
+        localStorage.removeItem("story");
 
         loading = false;
         goto('/story');

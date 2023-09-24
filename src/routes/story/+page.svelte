@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { transcript_store } from '$lib/stores';
+    import { ProgressRadial } from '@skeletonlabs/skeleton';
 
     let transcript;
     let generatedStory;
@@ -18,6 +19,7 @@
         console.log('Data: ', JSON.stringify(data));
         const { story } = data;
         generatedStory = story;
+        window.localStorage.setItem("story", generatedStory);
     }
 
     onMount(() => {
@@ -27,7 +29,11 @@
             // try getting from local storage
             transcript = window.localStorage.getItem("transcript");
         }
-		generateStory();
+        if (window.localStorage.getItem("story")) {
+            generatedStory = window.localStorage.getItem("story");
+        } else {
+		    generateStory();
+        }
 	});
 </script>
 
@@ -37,6 +43,7 @@
 {#if generatedStory}
 <p>{generatedStory}</p>
 {:else}
+<ProgressRadial/>
 <p>Generating story...</p>
 {/if}
 
